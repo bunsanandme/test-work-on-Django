@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'users',
     'event_app',
 ]
 
@@ -126,4 +127,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 DATE_INPUT_FORMATS = ["%d.%m.%Y"]
 USE_L10N = False
 
+AUTH_USER_MODEL = 'users.User'
 
