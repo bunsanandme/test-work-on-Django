@@ -20,6 +20,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "sortedm2m_filter_horizontal_widget",
     'rest_framework',
     'users',
     'event_app',

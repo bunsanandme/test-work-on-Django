@@ -7,7 +7,7 @@ from .views import (
 
 app_name = 'users'
 urlpatterns = [
-    path('users/', UserRetrieveUpdateAPIView.as_view()),
-    path('users/register/', RegistrationAPIView.as_view()),
-    path('users/login/', LoginAPIView.as_view()),
+    path('/', UserRetrieveUpdateAPIView.as_view()),
+    path('/register/', RegistrationAPIView.as_view()),
+    path('/login/', LoginAPIView.as_view()),
 ]
