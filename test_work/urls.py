@@ -16,9 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.static import static
+from django.conf import settings
+from event_app.views import event_info
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/users', include('users.urls', namespace='users')),
-    path('api/', include('event_app.urls', namespace='event_app'))
+    path("users/", include("users.urls", namespace="users")),
+    path('api/', include('event_app.urls', namespace='event_app')),
+    path("eventinfo/<int:pk>/", event_info),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -14,7 +14,7 @@ class Organization(models.Model):
 class Event(models.Model):
     title = models.CharField(max_length=50)
     description = models.TextField()
-    organizations = models.ManyToManyField(Organization,  through='OrganizationEvent', blank=True, null=True)
+    organizations = models.ManyToManyField(Organization, through='OrganizationEvent', blank=True, null=True)
     image = models.ImageField(upload_to ='uploads/', blank=True)
     date = models.DateField(default=now)
 

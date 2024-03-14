@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Django на METANIT.COM</title>
+</head>
+<body>
+    <h1>Мероприятие "{{ event.title }}"</h1>
+
+    
+    <img src="{{ event.image.url }}">
+                
+    <table>
+    <tr>
+        <td>Описание</td>
+        <td>{{event.description}}</td>
+    </tr>
+    <tr>
+        <td>Дата</td>
+        <td>{{event.date}}</td>
+    </tr>
+    </table>
+
+    <h2>Участники</h2>
+    {% for key, value in members.items %}
+        {{key}}, {{key.address}}, {{key.postcode}}<br>
+        {% for v in value %}
+            <ul>{{v.username}}, {{user}}</ul>
+        {% endfor %}
+    {%endfor%}
+</body>
+</html>
