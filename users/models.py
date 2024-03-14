@@ -13,9 +13,11 @@ class UserManager(BaseUserManager):
         if email is None:
             raise TypeError('Users must have an email address.')
         
+        
         user = self.model(username=username, email=self.normalize_email(email), 
-                          phone_number=phone_number, 
-                          organization=Organization.objects.get(title=organization['title']))
+                          phone_number=phone_number)
+        if organization:
+            user.organization=Organization.objects.get(title=organization['title'])
         user.set_password(password)
         user.save()
 

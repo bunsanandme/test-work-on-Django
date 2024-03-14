@@ -1,7 +1,17 @@
 version: '3.11.8'
 services:
-   web:
-       build: .
-       command: python manage.py runserver 0.0.0.0:8000
-       ports:
-           - 8000:8000
+  web:
+    build: .
+    command: >
+      sh -c "python manage.py migrate && 
+             python manage.py createsuperuser &&
+             python manage.py runserver 0.0.0.0:8000"
+             
+    environment:
+      - DJANGO_SUPERUSER_USERNAME=root
+      - DJANGO_SUPERUSER_EMAIL=root@root.ru
+      - DJANGO_SUPERUSER_PASSWORD=root
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
